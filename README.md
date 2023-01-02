@@ -1,2 +1,2 @@
 # BAEKJOON
-Algorithmic problem solving
+- Algorithmic problem solving
