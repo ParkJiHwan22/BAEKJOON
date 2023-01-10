@@ -21,19 +21,21 @@ T = int(input())
 
 for _ in range(T):
 
-    k = int(input())
+    k = int(input()) # 몇층?
 
-    n = int(input())
+    n = int(input()) # 몇호?
 
-    people = [ i for i in range(1, n+1)]
+    people = [ i for i in range(1, n+1)] # keypoint! people을 리스트로 설정
 
-    for __ in range(k):
+    for __ in range(k): # 층
 
-        for j in range(1,n):
+        for j in range(1,n): # 호
 
-            people[j] += people[j-1]
+            people[j] += people[j-1] # index를 사용해서 리스트를 계속 바꿈
 
-    print(people[-1])
+    print(people[-1]) # 리스트의 맨 마지막 수를 꺼냄
+
+# 리스트를 만들어서 맨 마지막 수만 꺼내는 생각을 못했다. 그런 발상도 할 수 있다는 걸 기억해두자.
 
 # 예제 입력 1 
 # 2
