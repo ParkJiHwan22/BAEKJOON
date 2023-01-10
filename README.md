@@ -13,5 +13,12 @@
 - [Stage_4 : one_dimensional_ordering](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/one_dimensional_ordering)
 ##### 2023.01.04 ~ 2023.01.06
 
+- [Stage_5 : function]()
+##### 2023.01.04 ~ 2023.01.06
+
+
 - [Stage_6 : string]()
-##### 2023.01.07 ~
+##### 2023.01.07 ~ 2023.01.09
+
+- [Stage_7 : basic_math_Ⅰ]()
+##### 2023.01.09
