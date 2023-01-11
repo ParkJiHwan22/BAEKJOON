@@ -23,7 +23,7 @@
 - ### *Stage_7 :* [*basic_math_Ⅰ*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/basic_math_1.py)
     ##### 2023.01.09 ~ 2023.01.10
 
-- ### *Stage_8 :* [*basic_math_Ⅱ*]()
+- ### *Stage_8 :* [*basic_math_Ⅱ*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/basic_math_2.py)
     ##### 2023.01.10 ~ 2023.01.11
 
 - ### *Stage_9 :* [*2D array*]()
