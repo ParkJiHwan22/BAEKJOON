@@ -26,10 +26,10 @@
 - ### *Stage_8 :* [*basic_math_Ⅱ*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/basic_math_2.py)
     ##### 2023.01.10 ~ 2023.01.11
 
-- ### *Stage_9 :* [*2D array*]()
-    ##### 2023.01.12
+- ### *Stage_9 :* [*2D array*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/2d_array)
+    ##### 2023.01.12 ~ 2023.01.17
 
-- ### *Stage_13 :* [*geometry*]()
+- ### *Stage_13 :* [*geometry*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/geometry)
     ##### 2023.01.13 ~ 2023.01.15
 
 - ### *Stage_14 :* [*number_theory&combinatorics*]()
