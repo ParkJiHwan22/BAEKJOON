@@ -29,14 +29,18 @@
 - ### *Stage_9 :* [*2D array*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/2d_array)
     ##### 2023.01.12 ~ 2023.01.17
 
-- ### *Stage_10 :* [*array*]()
+- ### *Stage_10 :* [*array*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/array)
     ##### 2023.01.17 ~ 2023.01.20
 
-- ### *Stage_11 :* [*recursion*]()
+- ### *Stage_11 :* [*recursion*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/recursion)
     ##### 2023.01.20 ~
+
+- ### *Stage_12 :* [*brute_force*]()
+    ##### 2023.01.20 ~ 2023.01.21
+
 
 - ### *Stage_14 :* [*geometry*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/geometry)
     ##### 2023.01.13 ~ 2023.01.15
 
-- ### *Stage_15 :* [*number_theory&combinatorics*]()
+- ### *Stage_15 :* [*number_theory&combinatorics*](https://github.com/ParkJiHwan22/BAEKJOON/tree/main/number_theory%26combinatorics)
     ##### 2023.01.16 ~
