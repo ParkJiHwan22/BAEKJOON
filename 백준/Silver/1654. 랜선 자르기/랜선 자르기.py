@@ -3,7 +3,7 @@ lan_list = [int(input()) for i in range(K)]
 
 start = 1
 end = max(lan_list)
-
+result = 0
 
 while start <= end:
     mid = (start + end) // 2
@@ -12,9 +12,10 @@ while start <= end:
     for x in lan_list:
         cnt += x // mid
 
-    if cnt >= N:
-        start = mid + 1
-    else:
+    if cnt < N:
         end = mid - 1
-
-print(end)
+    else:
+        result = mid
+        start = mid + 1
+        
+print(result)
