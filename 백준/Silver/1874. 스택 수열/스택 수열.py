@@ -1,5 +1,7 @@
-n = int(input())
-input_num = [int(input()) for i in range(n)]
+import sys
+
+n = int(sys.stdin.readline())
+input_num = [int(sys.stdin.readline()) for i in range(n)]
 num_list = list(range(1, n+1)) # 1 ~ n 까지의 숫자
 stack= [] # 다시 숫자를 담을 통
 stack_pm = [] # +,- 부호를 담을 통
