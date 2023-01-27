@@ -1,19 +1,14 @@
-import sys
+N = int(input())
 
-n = int(sys.stdin.readline())
+words_list = [input() for i in range(N)]
+words_dict = {}
 
-num_word_list = []
-word_list = []
+for i in words_list:
+   words_dict[i] = len(i)
 
-for i in range(n):
-   x = str(sys.stdin.readline().strip())
-   y = len(x)
-   num_word_list.append([y, x])
+words_items = list(words_dict.items())
+words_items = sorted(words_items)
+words_items = sorted(words_items, key = lambda x:x[1])
 
-# num_word_list = list(set(num_word_list()))
-num_word_list.sort()
-for i in range(n):
-    if num_word_list[i][1] not in word_list:
-        word_list.append(num_word_list[i][1])
-
-print(*word_list, sep='\n')
+for i in range(len(words_items)):
+    print(words_items[i][0])
