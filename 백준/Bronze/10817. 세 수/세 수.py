@@ -1,3 +1,2 @@
-num_list  = list(map(int, input().split()))
-num_list = sorted(num_list)
-print(num_list[1])
+A, B, C = map(int, input().split())
+print(A + B + C - max(A, B, C) - min(A, B, C))

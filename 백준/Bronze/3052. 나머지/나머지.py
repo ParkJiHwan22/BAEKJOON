@@ -1,19 +1,6 @@
-lst = []
-dict_variable = {}
+num_list = [int(input()) for i in range(10)]
+remainder = []
+for i in num_list:
+    remainder.append(i % 42)
 
-for i in range(10):
-    A = int(input())
-    lst.append(A%42)
-
-for i in lst:
-    cnt = 0
-    for j in lst:
-        if i == j:
-            cnt += 1
-    dict_variable[i] = cnt
-
-cnt_2 = 0
-for i in dict_variable.keys():
-    cnt_2 += 1
-
-print(cnt_2)
+print(len(set(remainder)))
