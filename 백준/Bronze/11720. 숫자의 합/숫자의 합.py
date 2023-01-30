@@ -1,8 +1,10 @@
 N = int(input())
-num = input()
+
+word = input()
 
 sum = 0
 
-for i in num:
+for i in word:
     sum += int(i)
+
 print(sum)
