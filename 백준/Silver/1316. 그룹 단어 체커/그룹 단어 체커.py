@@ -1,32 +1,27 @@
-N = int(input())
-word_list = []
-dict_word = {}
-cnt = 0
-sum = 0
+import sys
 
-for i in range(N):
-    word = input()
-    word_list.append(word)
+T = int(sys.stdin.readline())
+word_list = [sys.stdin.readline().strip() for _ in range(T)]
 
-for i in word_list:
-    k = ''
-    for j in i:
-        if j in dict_word:
-            if k == j:
-                dict_word[j] += 1
-                k = j
-            else:
-                cnt += 1
+res = 0
+
+for x in word_list:
+    alphabet = [0]*26
+    alphabet[(ord((x[0]))-97)] += 1
+    for i in range(1, len(x)):
+        if x[i] == x[i-1]:
+            continue
         else:
-            dict_word[j] = 1
-            k = j
+            alphabet[(ord((x[i]))-97)] += 1
 
-    if cnt == 0:
-        sum += 1
-        cnt = 0
-        dict_word.clear()
-    else:
-        cnt = 0
-        dict_word.clear()
+    cnt = 1
+    for j in range(len(alphabet)):
+        if alphabet[j] > 1:
+            cnt = 0
+            break
+        else:
+            continue
+    
+    res += cnt
 
-print(sum)
+print(res)
