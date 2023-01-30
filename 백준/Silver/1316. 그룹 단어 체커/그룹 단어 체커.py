@@ -1,27 +1,12 @@
-import sys
+N = int(input())
+result = N
+for i in range(0,N):
+    word=input()
+    for j in range(0,len(word)-1): # range(0, len(word)-1)을 이용
 
-T = int(sys.stdin.readline())
-word_list = [sys.stdin.readline().strip() for _ in range(T)]
-
-res = 0
-
-for x in word_list:
-    alphabet = [0]*26
-    alphabet[(ord((x[0]))-97)] += 1
-    for i in range(1, len(x)):
-        if x[i] == x[i-1]:
-            continue
-        else:
-            alphabet[(ord((x[i]))-97)] += 1
-
-    cnt = 1
-    for j in range(len(alphabet)):
-        if alphabet[j] > 1:
-            cnt = 0
+        if word[j] == word[j+1]:
+            pass
+        elif word[j] in word[j+1:]:
+            result -= 1
             break
-        else:
-            continue
-    
-    res += cnt
-
-print(res)
+print(result)
