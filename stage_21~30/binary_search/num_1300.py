@@ -32,8 +32,6 @@ B = sorted(B)
 print(B[K])
 
 
-
-
 print("time :", time.time() - start)  # 현재시각 - 시작시간 = 실행 시간
 
 

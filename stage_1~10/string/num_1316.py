@@ -48,16 +48,17 @@
 
 # 코드가 부끄러울 정도로 길다 여러 함수 메소드 사용해서 간략하게 생각하기\
 # 참 깔끔하다
+
 N = int(input())
 result = N
 for i in range(0,N):
     word=input()
     for j in range(0,len(word)-1): # range(0, len(word)-1)을 이용
 
-        if word[j]==word[j+1]:
+        if word[j] == word[j+1]:
             pass
         elif word[j] in word[j+1:]:
-            result-=1
+            result -= 1
             break
 print(result)
 
