@@ -1,32 +1,12 @@
 N = int(input())
-word_list = []
-dict_word = {}
-cnt = 0
-sum = 0
+result = N
+for i in range(0,N):
+    word=input()
+    for j in range(0,len(word)-1): # range(0, len(word)-1)을 이용
 
-for i in range(N):
-    word = input()
-    word_list.append(word)
-
-for i in word_list:
-    k = ''
-    for j in i:
-        if j in dict_word:
-            if k == j:
-                dict_word[j] += 1
-                k = j
-            else:
-                cnt += 1
-        else:
-            dict_word[j] = 1
-            k = j
-
-    if cnt == 0:
-        sum += 1
-        cnt = 0
-        dict_word.clear()
-    else:
-        cnt = 0
-        dict_word.clear()
-
-print(sum)
+        if word[j] == word[j+1]:
+            pass
+        elif word[j] in word[j+1:]:
+            result -= 1
+            break
+print(result)

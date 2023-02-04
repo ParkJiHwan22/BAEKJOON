@@ -1,6 +1,2 @@
-N = input()
-
-for i in range(9):
-    k = i + 1
-    l = k * int(N)
-    print(int(N),'*',k,'=',l)
+N = int(input())
+print(*[f'{N} * {i} = {N*i}' for i in range(1, 10)], sep='\n')
