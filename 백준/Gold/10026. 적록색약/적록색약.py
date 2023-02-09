@@ -1,100 +1,46 @@
 import sys
+sys.setrecursionlimit(1000000)
 
-n = int(input())
-visited = [[] for _ in range(n)]
-dx = [1, 0, -1, 0, 0]
-dy = [0, 1, 0, -1, 0]
-cnt_R = 0
-cnt_G = 0
-cnt_B = 0
-cnt_RG = 0
+n = int(sys.stdin.readline())
+matrix = [list(sys.stdin.readline().rstrip()) for _ in range(n)]
+visited = [[False] * n for _ in range(n)] # 방문 기록
 
-for _ in range(n):
-    colors = input()
-    for color in range(len(colors)):
-        if colors[color] == 'R':
-            visited[color].append(1)
-        elif colors[color] == 'G':
-            visited[color].append(2)
-        else:
-             visited[color].append(3)
+dx = [1, 0, -1, 0] # 방향을 나타냄
+dy = [0, -1, 0, 1]
 
-for i in range(n): # R, 1
+cnt2, cnt3 = 0, 0
+
+def dfs(x, y):
+    visited[x][y] = True
+    color = matrix[x][y]
+
+    for dir in range(4):
+        nx = x + dx[dir]
+        ny = y + dy[dir]
+
+        if 0 <= nx < n and 0 <= ny < n:
+            if visited[nx][ny] == False:
+                if matrix[nx][ny] == color:
+                    dfs(nx, ny)
+
+
+for i in range(n): # 적록색약이 아닌 사람
     for j in range(n):
-        if visited[i][j] == 1:
-            stack = []
-            stack.append(j)
-            stack.append(i)
-            cnt_R += 1
+        if visited[i][j] == False:
+            dfs(i, j)
+            cnt3 += 1
 
-            while stack:
-                x = stack.pop()
-                y = stack.pop()
-
-                for dir in range(5):
-                    if 0 <= x + dx[dir] < n and 0 <= y + dy[dir] < n:
-                        if visited[x + dx[dir]][ y + dy[dir]] == 1:
-                            visited[x + dx[dir]][ y + dy[dir]] = 4
-                            stack.append(y + dy[dir])
-                            stack.append(x + dx[dir])
-
-for i in range(n): # G, 2
+for i in range(n): # 적록색약으로 만들기
     for j in range(n):
-        if visited[i][j] == 2:
-            stack = []
-            stack.append(j)
-            stack.append(i)
-            cnt_G += 1
+        if matrix[i][j] == 'R':
+            matrix[i][j] = 'G'
 
-            while stack:
-                x = stack.pop()
-                y = stack.pop()
+visited = [[False] * n for _ in range(n)] # 방문 기록 갱신
 
-                for dir in range(5):
-                    if 0 <= x + dx[dir] < n and 0 <= y + dy[dir] < n:
-                        if visited[x + dx[dir]][ y + dy[dir]] == 2:
-                            visited[x + dx[dir]][ y + dy[dir]] = 4
-                            stack.append(y + dy[dir])
-                            stack.append(x + dx[dir])
-
-for i in range(n): # B, 3
+for i in range(n): # 적록색약인 사람
     for j in range(n):
-        if visited[i][j] == 3:
-            stack = []
-            stack.append(j)
-            stack.append(i)
-            cnt_B += 1
+        if visited[i][j] == False:
+            dfs(i, j)
+            cnt2 += 1
 
-            while stack:
-                x = stack.pop()
-                y = stack.pop()
-
-                for dir in range(5):
-                    if 0 <= x + dx[dir] < n and 0 <= y + dy[dir] < n:
-                        if visited[x + dx[dir]][ y + dy[dir]] == 3:
-                            visited[x + dx[dir]][ y + dy[dir]] = 5
-                            stack.append(y + dy[dir])
-                            stack.append(x + dx[dir])
-
-for i in range(n): # R = G = 4
-    for j in range(n):
-        if visited[i][j] == 4:
-            stack = []
-            stack.append(j)
-            stack.append(i)
-            cnt_RG += 1
-
-            while stack:
-                x = stack.pop()
-                y = stack.pop()
-
-                for dir in range(5):
-                    if 0 <= x + dx[dir] < n and 0 <= y + dy[dir] < n:
-                        if visited[x + dx[dir]][ y + dy[dir]] == 4:
-                            visited[x + dx[dir]][ y + dy[dir]] = 6
-                            stack.append(y + dy[dir])
-                            stack.append(x + dx[dir])
-
-
-
-print(cnt_R + cnt_G + cnt_B ,cnt_RG + cnt_B)
+print(cnt3, cnt2)
