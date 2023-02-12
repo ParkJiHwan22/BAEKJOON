@@ -17,49 +17,19 @@
 # 출력
 # 각 테스트케이스 별로 최대 이익을 나타내는 정수 하나를 출력한다. 답은 부호있는 64bit 정수형으로 표현 가능하다.
 
-from heapq import heappush, heappop, heapify
-import sys
+#===========================================================
 
-T = int(sys.stdin.readline())
-for _ in range(T):
-    n = int(sys.stdin.readline())
-    stock = list(map(int, sys.stdin.readline().split()))
-    
-    heap = []
-    bef_idx, profit = 0, 0
-
-    for i in stock:
-        heappush(heap, -i)
-        top_price = -heappop(heap)
-        top_idx = stock.index(top_price)
-        if 
-            for x in range(bef_idx, top_idx):
-                profit += top_price - stock[x]
-                bef_idx = top_idx
-
+for _ in range(int(input())):
+    n = int(input())
+    stock = list(map(int,input().split()))
+    profit = 0 
+    top_price = stock[-1]
+    for i in range(n-2, -1, -1):
+        if stock[i] > top_price: # 오늘 가격이 최대라면 
+            top_price = stock[i]
+        else:
+            profit += top_price - stock[i] # 오늘 가격이 최대가 아니라면 최대-지금가격만큼 더한다 
     print(profit)
-
-
-
-
-
-
-
-
-
-
-
-    # combo, profit = 0, 0
-    # for i in range(n-1):
-    #     if stock[i] < stock[i+1]:
-    #         combo += 1
-    #         profit += combo * (stock[i+1] - stock[i])
-    #     elif  stock[i] == stock[i+1]:
-    #         combo += 1
-    #     else:
-    #         combo = 0
-
-    # print(profit)
 
 # 예제 입력 1 
 # 3
