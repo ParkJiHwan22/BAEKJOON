@@ -10,19 +10,17 @@
 # 출력
 # 첫째 줄에 문제의 정답을 출력한다.
 
-lst = []
+# lst = []
+# x, y, w, h = map(int, input().split())
+# lst.append(x)
+# lst.append(y)
+# lst.append(h-y)
+# lst.append(w-x)
+
+# print(min(lst))
+
 x, y, w, h = map(int, input().split())
-lst.append(x)
-lst.append(y)
-lst.append(h-y)
-lst.append(w-x)
-# lst.append((x**2 + y**2)**0.5) # 이건 꼭짓점까지 가는거
-# lst.append((x**2 + (y-h)**2)**0.5)
-# lst.append(((x-w)**2 + y**2)**0.5)
-# lst.append(((x-w)**2 + (y-h)**2)**0.5)
-
-print(min(lst))
-
+print(min(x, y, h - y, w - x))
 
 # 제한
 # 1 ≤ w, h ≤ 1,000
