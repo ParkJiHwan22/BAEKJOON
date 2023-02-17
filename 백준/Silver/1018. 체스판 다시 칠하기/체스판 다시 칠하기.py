@@ -1,36 +1,33 @@
-num_1, num_2 = map(int, input().split())
-chess_list = [input() for i in range(num_1)]
-chess_wb = []
-chess_bw = []
-cnt_wb_list = []
-cnt_bw_list = []
+import sys
+
+n, m = map(int, sys.stdin.readline().split())
+chess_board = [sys.stdin.readline().split() for _ in range(n)]
+board = [[] for _ in range(n)]
+result = 0
+
+for i in range(n):
+    for j in chess_board[i][0]:
+        board[i].append(j)
+        
+wh_board = [[] for _ in range(8)]
 
 for i in range(8):
-    if i % 2 == 0:
-        chess_wb.append('BWBWBWBW')
-        chess_bw.append('WBWBWBWB')
-    else:
-        chess_wb.append('WBWBWBWB')
-        chess_bw.append('BWBWBWBW')
+    for j in range(8):
+        if (i+j) % 2 == 0:
+            wh_board[j].append('W')
+        else:
+            wh_board[j].append('B')
 
-for l in range(num_1 - 7):
-    for m in range(num_2 - 7):
-        cnt_wb = 0
-        for j in range(8):
-            for k in range(8):
-                if chess_list[j+l][k+m] != chess_wb[j][k]:
-                    cnt_wb += 1
+for i in range(n-7):
+    for j in range(m-7):
+        cnt = 0
+        for x in range(8):
+            for y in range(8):
+                if board[i+x][j+y] == wh_board[x][y]:
+                    cnt += 1
         
-        cnt_wb_list.append(cnt_wb)
+        cnt_max = max(cnt, 64-cnt)
+        if cnt_max > result:
+            result = cnt_max
 
-for l in range(num_1 - 7):
-    for m in range(num_2 - 7):
-        cnt_bw = 0
-        for j in range(8):
-            for k in range(8):
-                if chess_list[j+l][k+m] != chess_bw[j][k]:
-                    cnt_bw += 1
-
-        cnt_bw_list.append(cnt_bw)
-
-print(min(sorted(cnt_wb_list)[0], sorted(cnt_bw_list)[0]))
+print(64 - result)
