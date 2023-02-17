@@ -14,14 +14,26 @@
 
 n, k = map(int, input().split())
 coin = [int(input()) for _ in range(n)]
-
+coin = sorted(coin, reverse = True)
 res = 0
-for i in range(n - 1, -1, -1):
-    if k > coin[i]:
+for i in range(n):
+    if k >= coin[i]:
         res += k // coin[i]
         k = k % coin[i]
 
 print(res)
+
+#========================================
+
+# res = 0
+# for i in range(n - 1, -1, -1):
+#     if k >= coin[i]:
+#         res += k // coin[i]
+#         k = k % coin[i]
+
+# print(res)
+
+
 
 # 예제 입력 1 
 # 10 4200
