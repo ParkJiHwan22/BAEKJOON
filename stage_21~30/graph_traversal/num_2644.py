@@ -21,10 +21,24 @@
 
 n = int(input())
 a, b = map(int, input().split())
-r = int(input())
+m = int(input())
 
-for i in range(r):
+relation = [[] for _ in range(n+1)]
+for i in range(m):
     x, y = map(int, input().split())
+    relation[x].append(y)
+    relation[y].append(x)
+
+
+stack = []
+if b in relation[a]:
+    print(1)
+else:
+    while relation:
+        stack.append(relation[a].pop())
+
+    while stack:
+        stack.pop()
 
 # 예제 입력 1 
 # 9
