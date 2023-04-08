@@ -9,6 +9,6 @@ for i in range(n+1):
             print(i)
             break
         
-        elif i >= q_index[max(0, n - i - 1)]:
+        elif i >= q_index[n - i - 1]:
             print(i)
             break
