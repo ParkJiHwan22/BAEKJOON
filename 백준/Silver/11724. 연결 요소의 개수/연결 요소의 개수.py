@@ -2,27 +2,25 @@ import sys
 
 n, m = map(int, sys.stdin.readline().split())
 graph = [[] for _ in range(n+1)]
+visited = [0]*(n + 1)
+answer = 0
 
 for i in range(m):
-    u, v = map(int, sys.stdin.readline().split())
-    graph[u].append(v)
-    graph[v].append(u)
+    a, b = map(int, sys.stdin.readline().split())
+    graph[a].append(b)
+    graph[b].append(a) 
 
-visited = [0]*(n + 1)
-stack = []
-cnt = 0
-
-for x in range(1, n+1):
-    if visited[x] != 1:
-        visited[x] = 1
-        cnt += 1
-        stack.append(x)
-
+for i in range(1, n+1): # dfs
+    if visited[i] == 0: 
+        visited[i] = 1
+        answer += 1
+        stack = [i]
+        
         while stack:
-            y = stack.pop()
-            for z in graph[y]:
-                if visited[z] == 0:
-                    visited[z] = 1
-                    stack.append(z)
+            p = stack.pop()
+            for j in graph[p]:
+                if visited[j] == 0:
+                    visited[j] = 1
+                    stack.append(j)
 
-print(cnt)
+print(answer)
