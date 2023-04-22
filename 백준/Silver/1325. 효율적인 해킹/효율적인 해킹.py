@@ -3,20 +3,20 @@ from collections import deque
 
 n, m = map(int, sys.stdin.readline().split())
 
-def bfs(start):
+def dfs(start):
     cnt = 1
-    queue = deque([start])
+    stack = [start]
     visit = [0 for _ in range(n+1)]
     visit[start] = 1
 
-    while queue:
-        v = queue.popleft()
+    while stack:
+        v = stack.pop()
 
         for i in graph[v]:
             if not visit[i]:
                 visit[i] = 1
                 cnt += 1
-                queue.append(i)
+                stack.append(i)
     
     return cnt
 
@@ -31,7 +31,7 @@ max_cnt = 1 # 컴퓨터 1대를 해킹했을 시 최대 몇 대의 컴퓨터를 
 ans = []
 
 for j in range(1, n+1):
-    cnt = bfs(j)
+    cnt = dfs(j)
 
     if cnt > max_cnt: # cnt 가 최댓값보다 큰 경우
         max_cnt = cnt
