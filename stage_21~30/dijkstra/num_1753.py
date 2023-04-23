@@ -6,8 +6,8 @@ INF = int(1e9)
 
 V, E = map(int, input().split())
 start = int(input()) # 시작점
-graph = [[] for i in range(V + 1)]
-distance = [INF] * (V + 1) # (도착점, 가중치)
+graph = [[] for i in range(V + 1)]  # (도착점, 가중치)
+distance = [INF] * (V + 1)
 
 
 for _ in range(E):
@@ -25,7 +25,7 @@ def dijkstra(start):
             continue
         for i in graph[now]: # 현재 노드와 연결된 다른 인접한 노드들을 확인
             cost = dist + i[1]
-            # print(f'{now} -> {i[0]} : {cost}')
+            print(f'{cost}: {i[0]}')
             
             if cost < distance[i[0]]: # 현재 노드를 거쳐서, 다른 노드로 이동하는 거리가 더 짧을 경우
                 distance[i[0]] = cost
