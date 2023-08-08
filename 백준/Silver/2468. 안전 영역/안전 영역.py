@@ -1,7 +1,5 @@
-import sys
-
-n = int(sys.stdin.readline())
-map_list = [list(map(int,sys.stdin.readline().split())) for _ in range(n)]
+n = int(input())
+map_list = [list(map(int, input().split())) for _ in range(n)]
 res = []
 
 dx = [1, 0, -1, 0]
