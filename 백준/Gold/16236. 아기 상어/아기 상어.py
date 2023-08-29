@@ -5,7 +5,6 @@ sea = [list(map(int, input().split())) for _ in range(n)]
 level = 2
 fish_eaten = 0
 time = 0
-before_time = 0
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
@@ -22,12 +21,12 @@ while True:
     visited = [[0] * n for _ in range(n)]
     visited[start_y][start_x] = 1
     fishes = []  # 잡아먹힐 물고기들
-
+    before_time = 0
+    
     while queue:
         x, y, t = queue.popleft()
 
-        if fishes and before_time != time:
-            before_time = time
+        if fishes and before_t != t:
             break
             
         for dir in range(4):
@@ -42,7 +41,7 @@ while True:
                 elif 0 < sea[new_y][new_x] < level: # 먹을 수 있는 경우
                     fishes.append((new_x, new_y, t + 1))
                     
-        before_time = time
+        before_t = t
 
     # 잡아먹힐 물고기가 없다면 식을 종료
     if not fishes:
