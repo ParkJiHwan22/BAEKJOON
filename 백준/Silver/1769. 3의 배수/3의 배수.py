@@ -4,7 +4,7 @@ input = sys.stdin.readline
 n = input().strip()
 cnt = 0
 
-while int(n) >= 10:
+while len(n) > 1:
     tmp = 0
     for i in n:
         tmp += int(i)
@@ -19,3 +19,4 @@ if int(n) in [3, 6, 9]:
 
 else:
     print('NO')
+    
