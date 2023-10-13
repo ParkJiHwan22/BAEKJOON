@@ -5,10 +5,8 @@ n = input().strip()
 cnt = 0
 
 while len(n) > 1:
-    tmp = 0
-    for i in n:
-        tmp += int(i)
-        n = str(tmp)
+    n = list(map(int, list(n)))
+    n = str(sum(n))
 
     cnt += 1
 
@@ -19,4 +17,3 @@ if int(n) in [3, 6, 9]:
 
 else:
     print('NO')
-    
