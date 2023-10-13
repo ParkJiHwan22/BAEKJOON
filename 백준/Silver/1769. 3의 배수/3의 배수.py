@@ -1,4 +1,7 @@
-n = input()
+import sys
+input = sys.stdin.readline
+
+n = input().strip()
 cnt = 0
 
 while int(n) >= 10:
