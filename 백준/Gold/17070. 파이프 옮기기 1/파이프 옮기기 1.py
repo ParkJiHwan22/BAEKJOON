@@ -9,15 +9,14 @@ cnt = 0
 command = [[(1, 1), (1, 0)], [(1, 1), (0, 1)], [(1, 1), (1, 0), (0, 1)]]
 dp = [[[0, 0, 0] for _ in range(n)] for _ in range(n)]
 dp[0][1][0] = 1
-x = 1
-y = 0
+sum_x_y = 1
 
-while x + y <= 2*(n - 1):
+while sum_x_y <= 2*(n - 1):
     a = 0
-    b = x + y
+    b = sum_x_y
     tmp = deque([])
     
-    for i in range(a + b + 1):
+    for i in range(sum_x_y + 1):
         if a < n and b < n:
             tmp.append((a, b))
         a += 1
@@ -40,6 +39,6 @@ while x + y <= 2*(n - 1):
                         if x + j[0] < n and y + j[1] < n and arr[y + 1][x] + arr[y][x + 1] + arr[y + 1][x + 1] == 0:
                             dp[y + j[1]][x + j[0]][2] += dp[y][x][k]
             
-    y += 1
+    sum_x_y += 1
                 
 print(sum(dp[-1][-1]))
