@@ -22,7 +22,7 @@ else:
             dp[x - 1] = dp[x] + 1
             q.append(x - 1)
             
-        if 0 < x * 2 < MAX and dp[x * 2] == -1:
+        if x * 2 < MAX and dp[x * 2] == -1:
             dp[x * 2] = dp[x]            
             q.appendleft(x * 2)
             
