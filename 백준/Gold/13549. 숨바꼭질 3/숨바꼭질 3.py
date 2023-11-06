@@ -26,6 +26,6 @@ else:
             dp[x * 2] = dp[x]            
             q.appendleft(x * 2)
             
-        if 0 <= x + 1 < MAX and dp[x + 1] == -1:
+        if x + 1 < MAX and dp[x + 1] == -1:
             dp[x + 1] = dp[x] + 1
             q.append(x + 1)
