@@ -15,6 +15,7 @@ for _ in range(x+y):
         snake[a] = b
 
 complete = 0
+visited = [0 for _ in range(101)]
 
 heap = []
 heapq.heapify(heap)
@@ -29,15 +30,17 @@ while complete == 0:
 
     else:
         for i in range(1, 7):
-            if location + i in ladder:
+            if location + i in ladder and visited[location + i] == 0:
+                visited[location + i] = 1
                 heapq.heappush(heap, [cnt + 1, ladder[location + i]])
-                        
-        for j in range(1, 7):
-            if location + j in snake:
-                heapq.heappush(heap, [cnt + 1, snake[location + j]])
+
+            elif location + i in snake and visited[location + i] == 0:
+                visited[location + i] = 1
+                heapq.heappush(heap, [cnt + 1, snake[location + i]])
         
         switch = 0
-        for k in range(6, 0, -1):
-            if location + k not in snake and location + k not in ladder and switch == 0:
+        for j in range(6, 0, -1):
+            if location + j not in snake and location + j not in ladder and switch == 0 and visited[location + j] == 0:
+                visited[location + j] = 1
                 switch = 1     
-                heapq.heappush(heap, [cnt + 1, location + k])
+                heapq.heappush(heap, [cnt + 1, location + j])
