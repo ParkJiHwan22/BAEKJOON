@@ -1,3 +1,6 @@
+import sys
+input =sys.stdin.readline
+
 n, m = map(int, input().split())
 egg_price = [int(input()) for _ in range(m)]
 egg_price = sorted(egg_price)
