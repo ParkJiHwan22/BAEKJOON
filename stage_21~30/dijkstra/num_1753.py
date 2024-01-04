@@ -12,20 +12,20 @@ distance = [INF] * (V + 1)
 
 for _ in range(E):
     u, v, w = map(int, input().split())
-    graph[u].append((v, w))
+    graph[u].append((v, w)) # 도착위치, 가중치
     
 def dijkstra(start):
     q = []
-    heapq.heappush(q, (0, start))
+    heapq.heappush(q, (0, start)) # 최단거리, 현재위치
     distance[start] = 0
     
     while q:
         dist, now = heapq.heappop(q) # dist: 최단거리, now: 현재 위치
-        if distance[now] < dist: # 현재 노드가 이미 처리된 적이 있는 노드라면 무시
-            continue
-        for i in graph[now]: # 현재 노드와 연결된 다른 인접한 노드들을 확인
-            cost = dist + i[1]
-            print(f'{cost}: {i[0]}')
+        # if distance[now] < dist: # 현재 노드가 이미 처리된 적이 있는 노드라면 무시
+        #     continue
+        for i in graph[now]: # 현재 노드와 연결된 다른 인접한 노드들을 확인, (2, 2)
+            cost = dist + i[1]  # 최단거리 + 톨비(w)
+            # print(f'{cost}: {i[0]}')
             
             if cost < distance[i[0]]: # 현재 노드를 거쳐서, 다른 노드로 이동하는 거리가 더 짧을 경우
                 distance[i[0]] = cost
@@ -51,36 +51,36 @@ for i in range(1, V + 1): # 모든 노드로 가기 위한 최단 거리를 출�
 
 # V, E = map(int, sys.stdin.readline().split())
 # k = int(sys.stdin.readline())
-# graph = [[] for _ in range(V+1)]
-# weight = [[] for _ in range(V+1)]
-# score = [0 for _ in range(V+1)]
+# graph = [[] for _ in range(V+1)] # [[], [], [], [], [], []]
+# weight = [[] for _ in range(V+1)] # [[], [], [], [], [], []]
+# ans = [0 for _ in range(V+1)] # [0, 0, 0, 0, 0, 0]
 
 # for _ in range(E):
 #     u, v, w = map(int, sys.stdin.readline().split())
-#     graph[u].append(v)
-#     weight[u].append(w)
+#     graph[u].append(v) # [[], [2, 3], [3, 4], [4], [], [1]]
+#     weight[u].append(w) # [[], [2, 3], [4, 5], [6], [], [1]]
     
-# def dijkstra(k, graph, weight, score):
+# def dijkstra(k, graph, weight, ans):
 #     queue = deque([k])
     
 #     while queue:
 #         n = queue.popleft()
         
 #         for i in range(len(graph[n])):
-#             if score[graph[n][i]] == 0:
-#                 score[graph[n][i]] = score[n] + weight[n][i]
+#             if ans[graph[n][i]] == 0: # ans
+#                 ans[graph[n][i]] = ans[n] + weight[n][i]
 #                 queue.append(graph[n][i])
                 
-#             elif score[graph[n][i]] > score[n] + weight[n][i]:
-#                 score[graph[n][i]] = score[n] + weight[n][i]
+#             elif ans[graph[n][i]] > ans[n] + weight[n][i]:
+#                 ans[graph[n][i]] = ans[n] + weight[n][i]
 #                 queue.append(graph[n][i])
 
 
 #     for j in range(1, V+1):
-#         if j != k and score[j] == 0:
+#         if j != k and ans[j] == 0:
 #             print('INF')
 #         else:
-#             print(score[j])   
-    
+#             print(ans[j])
+            
 
-# dijkstra(k, graph, weight, score)
+# dijkstra(k, graph, weight, ans)
