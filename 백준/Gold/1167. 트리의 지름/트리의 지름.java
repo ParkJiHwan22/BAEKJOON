@@ -37,16 +37,15 @@ public class Main {
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{sNum, 0});
         
-        boolean[] visited = new boolean[N+1];
         int[] distance = new int[N+1];
+        distance[sNum] = Integer.MAX_VALUE;
         int maxNum = 0;
         
         while (!q.isEmpty()) {
             int[] cur = q.poll();
             
-            visited[cur[0]] = true;
             for (int[] ints : lst.get(cur[0])) {
-                if (!visited[ints[0]]) {
+                if (distance[ints[0]] == 0) {
                     distance[ints[0]] = cur[1] + ints[1];
                     q.add(new int[]{ints[0], distance[ints[0]]});
                     if (maxNum < distance[ints[0]]) {
@@ -56,6 +55,7 @@ public class Main {
                 }
             }
         }
+        
         res = maxNum;
         return sNum;
     }
