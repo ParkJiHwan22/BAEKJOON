@@ -26,18 +26,17 @@ public class Main {
 		
 		int pos = 0;
 		int oil = Integer.parseInt(st.nextToken());
-		// 주유소에서 멈추는 횟수를 최소화
-		// 가다가 기름이 다 떨어지면 이제까지 지나온 길에서 가장 큰 곳을 골라냄
-		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+		
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>((a, b) -> Integer.compare(b, a));
+
 		
 		for(int i = 0; i < N+1; i++) {
-			// 1 지나가도 기름이 남을 때
-			if (oil < (arr.get(i)[0] - pos)) {
-				// 2. 지나가도 기름이 모자를 때
-				while(oil < (arr.get(i)[0] - pos)) {
+			// 기름이 모자를 때
+			int move = arr.get(i)[0] - pos;
+			if (oil < move) {
+				while(oil < move) {
 					if (!pq.isEmpty()) {
-						int t = pq.poll();
-						oil += -t;
+						oil += pq.poll();
 						ans ++;
 					} else {
 						System.out.println(-1);
@@ -46,8 +45,8 @@ public class Main {
 				}
 			}
 			
-			pq.add(-arr.get(i)[1]);
-			oil -= arr.get(i)[0] - pos;
+			pq.add(arr.get(i)[1]);
+			oil -= move;
 			pos = arr.get(i)[0];
 		}
 		
