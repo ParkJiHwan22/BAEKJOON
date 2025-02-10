@@ -23,18 +23,11 @@ public class Main {
 			dp[0] = 1;
 			
 			for (int l = 0; l < lst.size(); l++) {
-				int[] tmp = new int[M+1];
 				int k = lst.get(l);
 				
-				for (int i = k; i <= M; i += k) {
-					for (int j = 0; j <= M - i; j++) {
-						tmp[i + j] += dp[j];
-					}
+				for (int i = k; i <= M; i ++) {
+					dp[i] += dp[i - k];
 				}
-				
-				for (int i = 1; i <= M; i++) {
-					dp[i] += tmp[i];
-				}				
 			}
 			
 			System.out.println(dp[M]);
