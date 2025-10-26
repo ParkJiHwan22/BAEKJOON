@@ -1,10 +1,10 @@
 # [level 0] 문자열의 앞의 n글자 - 181907 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181907?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181907?language=java) 
 
 ### 성능 요약
 
-메모리: 9.23 MB, 시간: 0.00 ms
+메모리: 83.9 MB, 시간: 0.03 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 10월 26일 20:29:51
+2025년 10월 26일 20:30:59
 
 ### 문제 설명
 
